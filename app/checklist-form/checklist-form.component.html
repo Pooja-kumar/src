@@ -1,0 +1,39 @@
+<div>
+    <form [formGroup]="checklistform" (ngSubmit)="OnChecklistSumbit()">
+        <h1>Enter Project Details</h1>
+        <div class="form-group">
+            <label class="pname control-label">Project Name<span style="color:red;">*</span></label>
+            <input required type="text" id="pnm" name="pnm" class="pname form-control" formControlName="pname" />
+        </div>
+        <div class="form-group">
+            <label class="mname control-label">Project Manager Name<span style="color:red;">*</span></label>
+            <input required type="text" id="mnm" name="mnm" class="mname form-control" formControlName="mname" />
+        </div>
+        <div class="form-group">
+            <label class="oname control-label">Application Owner Name<span style="color:red;">*</span></label>
+            <input required type="text" id="onm" name="onm" class="oname form-control" formControlName="oname" />
+        </div>
+        <div class="form-group">
+            <label class="datee control-label">Date<span style="color:red;">*</span></label>
+            <input required type="date" id="dtee" name="dtee" class="datee form-control" formControlName="datee" />
+        </div>
+
+        <h2>Checklist Questions</h2>
+        <label formArrayName="questionsC" *ngFor="let questionObj of QuestionFromArray.controls; let i = index">
+            <input type="checkbox" [formControlName]="i">
+            {{questions$[i].question}}
+            <br />
+        </label>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-success btn-block mb-4" />
+        </div>
+    </form>
+
+    <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+        <label formArrayName="orders" *ngFor="let order of ordersFormArray.controls; let i = index">
+          <input type="checkbox" [formControlName]="i">
+          {{questionsData[i].question}}
+        </label>
+        <button>submit</button>
+    </form> -->
+</div>

@@ -1,0 +1,23 @@
+<div>
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" class="form-control" formControlName="username" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password" />
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="!isAuthorized">
+            Invalid credentials!
+        </div>
+        <!-- Submit button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block mb-4 mt-4" [disabled]="!loginForm.valid">Sign in</button>
+        </div>
+    </form>
+</div>
